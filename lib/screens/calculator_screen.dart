@@ -8,7 +8,7 @@ class CalculatorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenBottom = MediaQuery.of(context).padding.bottom;
+    //final screenBottom = MediaQuery.of(context).padding.bottom;
     // MediaQuery.of(context).padding.top;
     return Scaffold(
       body: Column(
@@ -17,14 +17,16 @@ class CalculatorScreen extends StatelessWidget {
             height: screenHeight / 2,
           ),
           Container(
+            //TODO: Modify colours to one place
+            color: const Color.fromARGB(255, 179, 177, 177),
             width: screenWidth,
             height: screenHeight / 2,
-            padding: EdgeInsets.fromLTRB(10, 5, 10, screenBottom),
+            padding: const EdgeInsets.fromLTRB(25, 10, 10, 20),
             child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ButtonWidget(value: "C"),
                     ButtonWidget(value: "7"),
@@ -34,7 +36,7 @@ class CalculatorScreen extends StatelessWidget {
                   ],
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ButtonWidget(value: "÷"),
                     ButtonWidget(value: "8"),
@@ -44,9 +46,9 @@ class CalculatorScreen extends StatelessWidget {
                   ],
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    ButtonWidget(value: "x"),
+                    ButtonWidget(value: "×"),
                     ButtonWidget(value: "9"),
                     ButtonWidget(value: "6"),
                     ButtonWidget(value: "3"),
@@ -54,10 +56,10 @@ class CalculatorScreen extends StatelessWidget {
                   ],
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ButtonWidget(value: "⌫"),
-                    ButtonWidget(value: "-"),
+                    ButtonWidget(value: "−"),
                     ButtonWidget(value: "+"),
                     ButtonWidget(value: "="),
                   ],

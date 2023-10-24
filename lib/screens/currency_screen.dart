@@ -8,66 +8,70 @@ class CurrencyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
      final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenBottom = MediaQuery.of(context).padding.bottom;
+    //final screenBottom = MediaQuery.of(context).padding.bottom;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Currency Converter"),
         backgroundColor: Colors.transparent,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              debugPrint(screenHeight.toString());
+            },
             icon: const Icon(Icons.drive_eta_outlined),
           )
         ],
       ),
       body:  Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           SizedBox(
-            height: screenWidth/2,
+            height: screenHeight/2.5,
           ),
-          Container(
-            width: screenWidth,
-            height: screenHeight / 2,
-            padding: EdgeInsets.fromLTRB(10, 5, 10, screenBottom),
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ButtonWidget(value: "7"),
-                    ButtonWidget(value: "4"),
-                    ButtonWidget(value: "1"),
-                    ButtonWidget(value: "."),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ButtonWidget(value: "8"),
-                    ButtonWidget(value: "5"),
-                    ButtonWidget(value: "2"),
-                    ButtonWidget(value: "0"),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ButtonWidget(value: "9"),
-                    ButtonWidget(value: "6"),
-                    ButtonWidget(value: "3"),
-                    ButtonWidget(value: "00"),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ButtonWidget(value: "AC"),
-                    ButtonWidget(value: "⌫"),
-                  ],
-                ),
-              ],
-            ),)
+          Expanded(
+            child: Container(
+              color: Colors.grey,
+              padding: const EdgeInsets.fromLTRB(10, 5, 10, 20),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ButtonWidget(value: "7"),
+                      ButtonWidget(value: "4"),
+                      ButtonWidget(value: "1"),
+                      ButtonWidget(value: "."),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ButtonWidget(value: "8"),
+                      ButtonWidget(value: "5"),
+                      ButtonWidget(value: "2"),
+                      ButtonWidget(value: "0"),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ButtonWidget(value: "9"),
+                      ButtonWidget(value: "6"),
+                      ButtonWidget(value: "3"),
+                      ButtonWidget(value: "00"),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      ButtonWidget(value: "AC"),
+                      ButtonWidget(value: "⌫"),
+                    ],
+                  ),
+                ],
+              ),),
+          )
         ],
       ),
     );
