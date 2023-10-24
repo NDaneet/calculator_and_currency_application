@@ -12,32 +12,64 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isEqual = value == "=";
-    final buttonSize = Size(50, isEqual ? 150 : 70);
+    final buttonSize = Size(55, isEqual ? 120 : 55);
 
     return isEqual
-        ? SizedBox(
+        ? ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: SizedBox(
             height: buttonSize.height,
             width: buttonSize.width,
-            child: ClipRRect(
+            child: Material(
+              color: Color.fromARGB(255, 101, 248, 106),
               child: InkWell(
-                onTap: () {},
-                child: Text(
-                  value,
+                splashColor: Colors.green,
+                onTap: () => debugPrint(" RRect clicked"),
+                child: Center(
+                  child: Text(
+                    value,
+                    style: const TextStyle(fontSize: 25),
+                  ),
                 ),
               ),
             ),
-          )
-        : InkWell(
-            onTap: () {},
-            child: SizedBox(
-              height: buttonSize.height,
-              width: buttonSize.width,
-              child: ClipOval(
-                child: Text(
-                  value,
+          ),
+        )
+        : ClipOval(
+          child: SizedBox(
+            height: buttonSize.height,
+            width: buttonSize.width,
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () => debugPrint(" Oval clicked"),
+                splashColor: Colors.green,
+                child: Center(
+                  child: Text(
+                    value,
+                    style: const TextStyle(fontSize: 25),
+                  ),
                 ),
               ),
             ),
-          );
+          ),
+        );
   }
 }
+
+/*ClipOval(
+      child: SizedBox.fromSize(
+        size: const Size(70, 70),
+        child: Material(
+          color: Colors.white,
+          child: InkWell(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [icon, text],
+            ),
+            onTap: onPressed,
+            splashColor: color,
+          ),
+        ),
+      ),
+    ); */
