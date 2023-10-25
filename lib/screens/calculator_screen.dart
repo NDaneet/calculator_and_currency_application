@@ -8,14 +8,54 @@ class CalculatorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
-    //final screenBottom = MediaQuery.of(context).padding.bottom;
+    final screenTop = MediaQuery.of(context).padding.top;
     // MediaQuery.of(context).padding.top;
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(
-            height: screenHeight / 2,
-          ),
+          Container(
+              width: screenWidth,
+              height: screenHeight / 2,
+              color: Colors.transparent,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "History",
+                          style: TextStyle(fontSize: 25),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: (){},
+                            splashColor: Color.fromARGB(255, 101, 248, 106),
+                        child: Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            shape: BoxShape.circle
+                          ),
+                          child: Center(
+                            child: ImageIcon(
+                              size: 20,
+                              AssetImage("assets/currency_icon.png"),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  //TODO: change this to result and real-time output
+                  const Text("First"),
+                  const Text("Second")
+                ],
+              )),
           Container(
             //TODO: Modify colours to one place
             color: const Color.fromARGB(255, 179, 177, 177),
