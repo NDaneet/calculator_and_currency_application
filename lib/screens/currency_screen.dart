@@ -13,12 +13,14 @@ class CurrencyScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Currency Converter"),
         backgroundColor: Colors.transparent,
+        //TODO: Add elevation and modify accordingly
+        //elevation: 0,
         actions: [
           IconButton(
             onPressed: () {
               debugPrint(screenHeight.toString());
             },
-            icon: const Icon(Icons.drive_eta_outlined),
+            icon: const Icon(Icons.more_vert),
           )
         ],
       ),
