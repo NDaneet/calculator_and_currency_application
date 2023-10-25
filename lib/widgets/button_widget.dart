@@ -23,7 +23,7 @@ class ButtonWidget extends StatelessWidget {
             child: Material(
               color: Color.fromARGB(255, 101, 248, 106),
               child: InkWell(
-                splashColor: Colors.green,
+                splashColor: Color.fromARGB(255, 101, 248, 106),
                 onTap: () => debugPrint(" RRect clicked"),
                 child: Center(
                   child: Text(
