@@ -1,3 +1,5 @@
+import 'package:calculator_and_currency_application/screens/currency_screen.dart';
+import 'package:calculator_and_currency_application/screens/history_screen.dart';
 import 'package:calculator_and_currency_application/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -8,8 +10,7 @@ class CalculatorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenTop = MediaQuery.of(context).padding.top;
-    // MediaQuery.of(context).padding.top;
+    //final screenTop = MediaQuery.of(context).padding.top;
     return Scaffold(
       body: Column(
         children: [
@@ -17,44 +18,67 @@ class CalculatorScreen extends StatelessWidget {
               width: screenWidth,
               height: screenHeight / 2,
               color: Colors.transparent,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "History",
-                          style: TextStyle(fontSize: 25),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: (){},
-                            splashColor: Color.fromARGB(255, 101, 248, 106),
-                        child: Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            shape: BoxShape.circle
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(8, 25, 8, 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const HistoryScreen()));
+                          },
+                          child: const Text(
+                            "History",
+                            style: TextStyle(fontSize: 25),
                           ),
-                          child: Center(
-                            child: ImageIcon(
-                              size: 20,
-                              AssetImage("assets/currency_icon.png"),
+                        ),
+                        ClipOval(
+                          child: Material(
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const CurrencyScreen()));
+                              },
+                              splashColor: Colors.blue,
+                              child: const SizedBox(
+                                width: 50,
+                                height: 50,
+                                child: Center(
+                                  child: ImageIcon(
+                                    size: 25,
+                                    AssetImage("assets/currency_icon.png"),
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
+                        )
+                      ],
+                    ),
+                    //TODO: change this to result and real-time output
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text("First"),
+                        SizedBox(
+                          height: 10,
                         ),
-                      )
-                    ],
-                  ),
-                  //TODO: change this to result and real-time output
-                  const Text("First"),
-                  const Text("Second")
-                ],
+                        Text("Second")
+                      ],
+                    ),
+                  ],
+                ),
               )),
           Container(
             //TODO: Modify colours to one place
